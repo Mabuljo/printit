@@ -16,3 +16,19 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+/*Ajout de la constante des flèches */
+const arrows = document.querySelectorAll(".arrow");
+
+/* Ajout de la constante Slide active = slide visible */
+const slideActive = document.querySelector(".active");
+
+
+/* Pour chaque flèche écouter le clic */
+arrows.forEach((arrow) => {
+	arrow.addEventListener('click', (e) => {
+	
+	})
+});
+
+
+
