@@ -17,37 +17,43 @@ const slides = [
 	}
 ]
 
-// tableau slides [0,1,2,3]
+// Ajout des variables
+const bannerImg = document.querySelector(".banner-img");
+const tagline = document.querySelector("#banner p");
+const arrowLeft = document.querySelector(".arrow_left");
+const arrowRight = document.querySelector(".arrow_right");
+const dots = document.querySelectorAll(".dot")
 
-// Ajout de la constante des flèches
-const arrows = document.querySelectorAll(".arrow");
+let compteur = 0;
 
-// Ajout de la constante Slide active => slide visible
-const slideActive = document.querySelector(".active");
+// fonction pour changer <img> et <p>
+function changeSlide(){
+	bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`; // On ajoute le chemin de l'image dans la source
+	tagline.innerHTML = slides[compteur].tagLine; // On ajoute en HTML la tagline dans la balise <p>
 
-// Pour chaque flèche écouter le clic
-arrows.forEach((arrow) => {
-	arrow.addEventListener('click', (e) => {
-		// si je clique sur arrow_left je fais -1 et si je clique sur arrow_right je fais +1
-		//calcNextSlide => est ce que e.target.classlist est égal à arrow_right? si oui ca renvoie +1 si non renvoie -1
-		let calcNextSlide =0;
-			if (e.target.classList === "arrow_right") 
-				{calcNextSlide === +1}
-				else {calcNextSlide === -1};
+}
+// fonction pour ajouter la class dot_selecteur selon index du tableau
+function changeDot(index){
+	dots.forEach((dot, compteur) => {
+			if (compteur === index) { // Si compteur est égal à l'index du tableau alors
+				dot.classList.add("dot_selected"); // On ajoute la classe pour le bullet point actif
+			} else {
+				dot.classList.remove("dot_selected"); // On supprime la classe pour les autres points bullets
+			}
+		});
+	}
 
-		//newIndex => calcule où se positionne la class active dans le tableau slides 
-		//si calcNextSlide=-1 et ([...slides].indexOf(slideActive))=1 on aura 0 donc la 1e image
-		newIndex = calcNextSlide + ([...slides].indexOf(slideActive));
+arrowLeft.addEventListener('click', function(){
+	compteur--; // On recule d'un élément dans le tableau
+	if(compteur < 0){compteur = slides.length -1}; /* Si le compteur est inférieur à 0,
+	 												on retourne au dernier objet du tableau et -1 car slides.lenght=3 et dernier objet a index=2 */
+	changeSlide();
+	changeDot(compteur);
+});
 
-		//Pour avoir le dernier élément du tableau 
-		if(newIndex < 0) {newIndex = slides.length -1};
-
-		//pour avoir le 1e élément du tableau
-		if(newIndex >= slides.length) {newIndex = 0;};
-
-		//pour ajouter la class active au nouvel index du tableau et qui permet de montrer l'image à l'écran
-		slides[newIndex].classList.add('active');
-		//pour enlever la class active à SlideActive
-		slideActive.classList.remove('active');
-	})
+arrowRight.addEventListener('click', function(){
+	compteur++; // On avance d'un élément dans le tableau
+	if(compteur >= slides.length){compteur = 0}; // Si on est au dernier élément du tableau, on revient à l'élément 0
+	changeSlide();
+	changeDot(compteur);
 });
