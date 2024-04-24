@@ -32,7 +32,7 @@ function changeSlide(){
 	tagline.innerHTML = slides[compteur].tagLine; // On ajoute en HTML la tagline dans la balise <p>
 
 }
-// fonction pour ajouter la class dot_selecteur selon index du tableau = i
+// fonction pour ajouter la class dot_selecteur selon index du tableau "dots"= i
 function changeDot(i){
 	dots.forEach((dot, compteur) => {
 			if (compteur === i) { // Si compteur est égal à l'index du tableau alors
@@ -46,14 +46,14 @@ function changeDot(i){
 arrowLeft.addEventListener('click', function(){
 	compteur--; // On recule d'un élément dans le tableau
 	if(compteur < 0){compteur = slides.length -1}; /* Si le compteur est inférieur à 0,
-	 												on retourne au dernier objet du tableau et -1 car slides.lenght=3 et dernier objet a index=2 */
+	 												on retourne au dernier objet du tableau et -1 car slides.lenght=3 et le dernier objet a  un index=2 */
 	changeSlide();
-	changeDot(compteur);
+	changeDot(compteur); // on joue la fonction sur la valeur de compteur
 });
 
 arrowRight.addEventListener('click', function(){
 	compteur++; // On avance d'un élément dans le tableau
 	if(compteur >= slides.length){compteur = 0}; // Si on est au dernier élément du tableau, on revient à l'élément 0
 	changeSlide();
-	changeDot(compteur);
+	changeDot(compteur); // on joue la fonction sur la valeur de compteur
 });
