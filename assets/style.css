@@ -118,7 +118,7 @@ header {
 	object-fit: cover;
 	object-position: center;
 }
-/* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
+/* Code CSS en prévision de l'ajout d'un carrousel pour la bannière */
 /* Gestion des fleches du carrousel */
 #banner .arrow {
 	position: absolute;
@@ -147,7 +147,7 @@ header {
 .dot_selected {
 	background-color: #fff;
 }
-/* Fin du code CSS pour le carousel */
+/* Fin du code CSS pour le carrousel */
 #banner p {
 	font-family: 'Roboto Slab', sans-serif;
 	font-weight: 900;

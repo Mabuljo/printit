@@ -32,10 +32,10 @@ function changeSlide(){
 	tagline.innerHTML = slides[compteur].tagLine; // On ajoute en HTML la tagline dans la balise <p>
 
 }
-// fonction pour ajouter la class dot_selecteur selon index du tableau "dots"= i
+// fonction pour ajouter la class dot_selected selon index de la nodelist "dots"= i
 function changeDot(i){
 	dots.forEach((dot, compteur) => {
-			if (compteur === i) { // Si compteur est égal à l'index du tableau alors
+			if (compteur === i) { // Si compteur est égal à l'index de la nodelist alors
 				dot.classList.add("dot_selected"); // On ajoute la classe pour le bullet point actif
 			} else {
 				dot.classList.remove("dot_selected"); // On supprime la classe pour les autres points bullets
