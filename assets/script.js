@@ -32,11 +32,11 @@ function changeSlide() {
   bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`; // On ajoute le chemin de l'image dans la source
   tagline.innerHTML = slides[compteur].tagLine; // On ajoute en HTML la tagline dans la balise <p>
 }
-// fonction pour ajouter la class dot_selected selon index de la nodelist "dots"= i
+// fonction pour ajouter la class dot_selected selon index du tableau"dots" = i
 function changeDot(i) {
   dots.forEach((dot, compteur) => {
     if (compteur === i) {
-      // Si compteur est égal à l'index de la nodelist alors
+      // Si compteur est égal à l'index du tableau alors
       dot.classList.add("dot_selected"); // On ajoute la classe pour le bullet point actif
     } else {
       dot.classList.remove("dot_selected"); // On supprime la classe pour les autres points bullets
