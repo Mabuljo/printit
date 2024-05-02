@@ -32,6 +32,7 @@ function changeSlide() {
   bannerImg.src = `assets/images/slideshow/${slides[compteur].image}`; // On ajoute le chemin de l'image dans la source
   tagline.innerHTML = slides[compteur].tagLine; // On ajoute en HTML la tagline dans la balise <p>
 }
+
 // fonction pour ajouter la class dot_selected selon index du tableau"dots" = i
 function changeDot(i) {
   dots.forEach((dot, compteur) => {
@@ -48,7 +49,7 @@ arrowLeft.addEventListener("click", function () {
   compteur--; // On recule d'un élément dans le tableau
   if (compteur < 0) {
     compteur = slides.length - 1;
-  } // Si le compteur est inférieur à 0, on retourne au dernier objet du tableau et -1 car slides.lenght=3 et le dernier objet a  un index=2
+  } // Si le compteur est inférieur à 0, on retourne au dernier objet du tableau et -1 car slides.lenght=4 et le dernier objet a  un index=3
   changeSlide();
   changeDot(compteur); // on joue la fonction sur la valeur de compteur
 });
